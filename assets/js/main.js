@@ -8,26 +8,23 @@ const score1 = document.getElementById("scorePlayer");
 const score2 = document.getElementById("scoreComputer");
 const result = document.getElementById("result");
 const winner = document.getElementById("winner");
+let movesLeft = document.getElementById("movesLeft");
 let scorePlayer = 0;
 let scoreComputer = 0;
-let round = 1;
+let round = 0;
 let roundsToBePlayed ;
 
-const rounds = document.querySelector('#rounds').addEventListener("change", howManyRounds = () => {
+
+const rounds = document.querySelector('#rounds').addEventListener("click", howManyRounds = () => {
     roundsToBePlayed = document.querySelector('input[name="rounds"]:checked').value;
     console.log(roundsToBePlayed);
 })
-
-
-
-
 
 const form = document.querySelector('#form').addEventListener("change", getInput = () => {
     movePlayer = document.querySelector('input[name="choice"]:checked').value;
     round++;
     // console.log(movePlayer);
-    // console.log(round);
-
+    
     const random = Math.floor(Math.random() * optionsComputer.length)
 // console.log(options[random]);
 
@@ -38,21 +35,20 @@ const form = document.querySelector('#form').addEventListener("change", getInput
     const game = () => {
         if (movePlayer === moveComputer) {
             result.innerHTML = "Unentschieden";
-            round++
         } else if (movePlayer === "rock" && moveComputer === "scissors") {
-            result.innerHTML = "Player wins!";
+            result.innerHTML = "Player wins this round!";
             scorePlayer++;
             score1.innerHTML = scorePlayer; 
         } else if (movePlayer === "paper" && moveComputer === "rock") {
-            result.innerHTML = "Player wins!";
+            result.innerHTML = "Player wins this round!";
             scorePlayer++;
             score1.innerHTML = scorePlayer;
         } else if (movePlayer === "scissor" && moveComputer === "paper") {
-            result.innerHTML = "Player wins!";
+            result.innerHTML = "Player wins this round!";
             scorePlayer++;
             score1.innerHTML = scorePlayer ;
         } else {
-            result.innerHTML = "Comnputer wins!";
+            result.innerHTML = "Comnputer wins this round!";
             scoreComputer++;
             score2.innerHTML = scoreComputer;
         }
@@ -60,12 +56,19 @@ const form = document.querySelector('#form').addEventListener("change", getInput
         if (round >= roundsToBePlayed) {
             if (scorePlayer > scoreComputer) {
                 winner.innerHTML = `PLAYER WINS THIS GAME`;
-            } else {
+            } else if (scorePlayer < scoreComputer) {
                 winner.innerHTML = `COMPUTER WINS THIS GAME`;
+            } else {
+                
+                winner.innerHTML = `UNENTSCHIEDEN`;
             
         } }
-    }
+
+        movesLeft.innerHTML = `Moves left: ${roundsToBePlayed - round}`;
         
+    }
+    console.log(round);
+    
 game()
 
 // console.log(scorePlayer);
