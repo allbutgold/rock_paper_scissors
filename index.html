@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+<body id="home">
+    <section class="game">
+        <h1>Rock Paper Scissors game</h1>
+        <h3>How many rounds would you like to play?</h3>
+        <form id="rounds" class="radio">     
+            <input type="radio" name="rounds" id="radio5" value="5">
+            <label for="radio5">5</label>
+            <input type="radio" name="rounds" id="radio10" value="10">
+            <label for="radio10">10</label> 
+            <input type="radio" name="rounds" id="radio15" value="15">
+            <label for="radio15">15</label>
+            <input type="radio" name="rounds" id="radio20" value="20">
+            <label for="radio20">20</label>   
+        </form>
+        
+        <form id="form" class="radio">
+            <h2>Choose wisely</h2>
+            <input type="radio" name="choice" id="rock" value="rock">
+            <label for="rock">Rock</label>
+            <input type="radio" name="choice" id="paper" value="paper">
+            <label for="paper">Paper</label>
+            <input type="radio" name="choice" id="scissors" value="scissors">
+            <label for="scissors">Scissors</label>
+        </form>
+        <h2>Score</h2>
+        <section class="score">
+
+            <div>
+                <h3>Player</h3>
+                <p id="scorePlayer">0</p>
+            </div>
+            <div>
+                <h3>Computer</h3>
+            <p id="scoreComputer">0</p>
+            </div>
+            
+        </section>
+<!--         <section class="movesLeft">
+    
+        </section>
+    -->
+
+        <section class="winner">
+            <h2 id="result">Who wins?</h2>
+            <h2 id="winner"></h2>
+            <a href="./index.html">restart</a>
+        </section>
+        
+        
+    
+    
+    
+    </section>
+
+<script src="./assets/js/main.js"></script>
+</body>
+</html>
